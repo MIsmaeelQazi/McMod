@@ -12,11 +12,16 @@ window.addEventListener("resize", CanvasSize);
 
 const stars = 5500;
 //const distance = 120;
-const Colors = [[255,255,255],[210,230,255],[255,245,220],[225,210,255],[255,225,100],[190,225,255],]
+const Colors = [
+    [255, 40, 40],    // Crimson Blood
+    [57, 255, 20],    // Necrotic Green / Ectoplasm
+    [180, 70, 255],   // Phantom Purple
+    [255, 140, 20],   // Pumpkin Ember
+    [220, 220, 240]   // Ghost White
+];
 function Galaxy(_){
-    const center = DaQazi.height * 0.8 - (_/ DaQazi.width) * DaQazi.height * 0.8;
-
-    const spread = DaQazi.height * 0.10;
+    const center = DaQazi.height * 0.8 - (_/ DaQazi.width) * DaQazi.height * 0.6;
+    const spread = DaQazi.height * 0.12;
 
     const Rand = Math.random() + Math.random() + Math.random() + Math.random() -2;
 
@@ -44,7 +49,7 @@ for (let _ = 0; _ < stars; _++){
         y : Y,
         vx: (Math.random() - 0.5) * 0.3,
         vy: (Math.random() - 0.5) * 0.3,
-        radius: Math.random() ** 3 * 2.5 + 0.2,
+        radius: (Math.random() ** 3) * 2.5 + 0.2,
         TwinkyTime: Math.random() * Math.PI * 2,
         Twinkle : Math.random() * 0.7 + 0.2,
         color : Colors[Math.floor(Math.random()* Colors.length)],
@@ -63,7 +68,7 @@ function ShootThemStars(){
 
         ShootingStars.push({
             x:Math.random()*DaQazi.width,
-            y:Math.random()* DaQazi.height * 0.6,
+            y:Math.random()* DaQazi.height * 0.5,
             len: Math.random() * 100 + 60,
             vx:Math.cos(angle) * speed,
             vy: Math.sin(angle) * speed,
